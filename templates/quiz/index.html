@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<style>
+  body{
+    
+    background: url(https://cdn.glitch.com/223d8162-e73f-49c8-b16e-ece7473b1fc2%2Foussama-zaidi-YmZkg7ImBAs-unsplash.jpg?v=1620485881906) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .jumbotron{
+    margin-bottom: 0px;
+    background: url(https://cdn.glitch.com/223d8162-e73f-49c8-b16e-ece7473b1fc2%2Foussama-zaidi-YmZkg7ImBAs-unsplash.jpg?v=1620485881906) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  p{
+    color:#f8f9fa ;
+  }
+  
+
+</style>
+<body>
+  {% include "quiz/navbar.html" %}
+<br>
+<section id="section-jumbotron" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
+  <div class="container text-center">
+    <h1 class="display-1 text-info">Let's Quiz</h1><br><br><br><br>
+    
+
+    
+
+    <p class="lead">Sign up if you haven't already and get access to millions of quizzes on the topic of your interest.</p><br>
+    
+    <a href="/student/studentsignup" class="btn btn-lg btn-info" style="padding-right: 35px;"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a><br>
+    
+    
+  </div>  
+</section>
+  {% include "quiz/footer.html" %}
+
+
+</body>
+
+</html>
