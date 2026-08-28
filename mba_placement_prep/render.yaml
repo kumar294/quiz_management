@@ -1,0 +1,31 @@
+# Render blueprint for the FastAPI backend + managed Postgres.
+# Deploy by connecting this repo in Render → New → Blueprint, pointing at this file.
+# Set ANTHROPIC_API_KEY in the Render dashboard (marked sync:false below so it isn't
+# committed).
+
+services:
+  - type: web
+    name: glim-prep-api
+    runtime: docker
+    plan: starter
+    rootDir: mba_placement_prep/backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-opus-4-7
+      - key: DATABASE_URL
+        fromDatabase:
+          name: glim-prep-db
+          property: connectionString
+      - key: LOG_LEVEL
+        value: INFO
+
+databases:
+  - name: glim-prep-db
+    plan: free
+    databaseName: glim_prep
+    user: glim_prep
